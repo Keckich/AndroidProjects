@@ -1,0 +1,3 @@
+[submodule "Android-UnitConverter"]
+	path = Android-UnitConverter
+	url = https://github.com/Keckich/Android-UnitConverter
