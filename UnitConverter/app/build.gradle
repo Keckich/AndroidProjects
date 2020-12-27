@@ -33,6 +33,14 @@ task printVC{
 }
 
 android {
+    signingConfigs {
+        config {
+            storeFile file('D:\\keystores\\android.jks')
+            storePassword 'storePass'
+            keyAlias 'android'
+            keyPassword 'keyPass'
+        }
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
@@ -49,17 +57,16 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
     }
     flavorDimensions "version"
     productFlavors {
         basic {
             applicationIdSuffix ".basic"
-            versionName "1.0-basic"
         }
         premium {
             applicationIdSuffix ".premium"
-            versionName "1.0-premium"
             minSdkVersion 19
         }
     }
